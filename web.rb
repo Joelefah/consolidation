@@ -22,19 +22,18 @@ get '/' do
 end
 
 get '/new' do
-  @title = "Add Todo list"
   erb :form #form is displayed
 end
 
 post '/new' do
   Item.create(:content => params[:content], :price => params[:price], :weight => params[:weight], :created => Time.now)
-  @filename = params[:file][:filename]
-  file = params[:file][:tempfile]
+  #@filename = params[:file][:filename]
+  #file = params[:file][:tempfile]
 
-  File.open("./public/#{@filename}", 'wb') do |f|
-    f.write(file.read)
-  end
-  redirect '/'
+  #File.open("./public/#{@filename}", 'wb') do |f|
+  #  f.write(file.read)
+  #end
+  
 end
 
 
